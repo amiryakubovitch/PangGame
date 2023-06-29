@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3735450750007501565
 SpriteRenderer:
@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6849a28dc1907334c8de9f9b996c1cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Size: 0
-  Speed: 100
-  Height: 0
-  Level: 0
+  Size: 2
+  Speed: 3
+  Height: 5
+  Level: 3
 --- !u!114 &5204554817735552961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

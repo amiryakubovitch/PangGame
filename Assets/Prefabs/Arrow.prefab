@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 8484107178269195260}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &125008124135022835
 SpriteRenderer:
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f621aa66980620940932fe9fa599ed78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
   arrowChain: {fileID: 8106430497168139965}
 --- !u!66 &8986693267189803053
 CompositeCollider2D:
