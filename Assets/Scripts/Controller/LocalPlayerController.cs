@@ -49,7 +49,6 @@ public class LocalPlayerController : MonoBehaviour
     /// <param name="movingRight">state to set</param>
     public void SetMovingRight(bool movingRight)
     {
-        Debug.Log("moving right:" + movingLeft);
         this.movingRight = movingRight;
     }
 

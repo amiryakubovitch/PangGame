@@ -26,6 +26,15 @@ public class Playercontroller : MonoBehaviour , IPlayer
         OnHealthChange.Invoke(model.CurrentHealth);
     }
 
+    void Update()
+    {
+        if(model.invincibilityTimer > 0)
+        {
+            model.invincibilityTimer-=Time.deltaTime;
+            if(model.invincibilityTimer <= 0)
+                model.SpriteFlasher.enabled = false;
+        }
+    }
     
 
     /// <summary>
@@ -73,6 +82,37 @@ public class Playercontroller : MonoBehaviour , IPlayer
         {
             model.CurrentAmmo++;
             OnAmmoChange.Invoke(model.CurrentAmmo);
+        }
+    }
+
+    /// <summary>
+    /// handles getting hit logic for the local player
+    /// </summary>
+    public void getHit()
+    {
+        if (model.invincibilityTimer > 0|| model.CurrentHealth <= 0)
+            return;
+
+        model.CurrentHealth -= 1;
+        OnHealthChange.Invoke(model.CurrentHealth);
+        if(model.CurrentHealth <= 0)
+        {
+            //lose
+            return;
+        }
+        model.SpriteFlasher.enabled= true;
+        model.invincibilityTimer = model.invincibilityTime;
+    }
+
+    /// <summary>
+    /// called when a trigger collision enters the player colliders
+    /// </summary>
+    /// <param name="other">trigger collider</param>
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Ball")
+        {
+            getHit();
         }
     }
 }

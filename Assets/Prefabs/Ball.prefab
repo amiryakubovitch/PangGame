@@ -101,8 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Size: 2
-  Speed: 3
-  Height: 5
+  SpeedX: 3
+  SpeedY: 7
+  GravityScale: 0.5
   Level: 3
 --- !u!114 &5204554817735552961
 MonoBehaviour:

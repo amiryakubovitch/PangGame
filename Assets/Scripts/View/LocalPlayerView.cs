@@ -44,7 +44,6 @@ public class LocalPlayerView : MonoBehaviour
     /// <param name="clicked">boolean whether the button is held or released</param>
     public void OnMoveRight(bool clicked)
     {
-        Debug.Log("clicked right:" + clicked);
         playercontroller.SetMovingRight(clicked);   
     }
 
