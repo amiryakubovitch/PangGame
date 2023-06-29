@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 3
   MaxAmmo: 2
-  Speed: 2
+  Speed: 3
   ArrowPrefab: {fileID: 5859960106528002378, guid: 1cb0c0df1b0b0de49bf4c72a5363f19c, type: 3}
   ArrowHolder: {fileID: 3523674321361980652}
   CurrentHealth: 0

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// hold all the information of a player 
+/// </summary>
 public class PlayerModel : MonoBehaviour
 {
     public int MaxHealth;
@@ -13,6 +15,7 @@ public class PlayerModel : MonoBehaviour
     public int CurrentHealth;
     [HideInInspector]
     public int CurrentAmmo;
+
 
     public void Start()
     {
