@@ -8,7 +8,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Ball", menuName = "Level/Ball")]
 public class BallScriptable : ScriptableObject
 {
-    public GameObject Prefab;
     public float Size;
     public float SpeedX;
     public float SpeedY;

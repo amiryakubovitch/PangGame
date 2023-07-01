@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e47bc8ed27cf1942a9427fcfc8ac1df, type: 3}
   m_Name: SmallBall
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 8828959190233221410, guid: 5788a8b283c38d74c9c1702d6b04f000, type: 3}
-  Size: 2
+  Size: 0.5
   SpeedX: 2.5
   SpeedY: 5
   GravityScale: 0.5
-  Level: 2
+  Level: 1

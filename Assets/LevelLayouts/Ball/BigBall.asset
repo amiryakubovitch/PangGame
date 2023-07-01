@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e47bc8ed27cf1942a9427fcfc8ac1df, type: 3}
   m_Name: BigBall
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 8828959190233221410, guid: 5788a8b283c38d74c9c1702d6b04f000, type: 3}
-  Size: 4
+  Size: 2.5
   SpeedX: 4
   SpeedY: 6
   GravityScale: 0.5
-  Level: 4
+  Level: 3
