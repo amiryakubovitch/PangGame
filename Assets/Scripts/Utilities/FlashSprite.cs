@@ -21,9 +21,6 @@ public class FlashSprite : MonoBehaviour
 
     public void Update()
     {
-
-
-
         //calculate the new alpha values
         Color color = spriteRenderer.color;
         color.a +=Time.deltaTime*speed*modifier;

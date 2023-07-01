@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameModel : MonoBehaviour
 {
     public GameObject BallPrefab;
+    public List<LevelLayout> LevelLayouts;
 
     [HideInInspector]
-    public int TotalTinyBalls;
+    public int TotalBalls;
 }
