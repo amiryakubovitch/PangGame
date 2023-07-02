@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,19 +31,24 @@ public class GameController : MonoBehaviour
         LoadLevel();
     }
 
-    public void LoadPlayers()
+    /// <summary>
+    /// Loads all the player according to the chosen mode
+    /// </summary>
+    private void LoadPlayers()
     {
-        //if(Application.isEditor) //check if running in editor 
-        //{
-        //    gameView.InstantiatePlayer(gameModel.FirstLocalPlayer);
-        //    return;
-        //}
+        UnpauseGame();
+        if (Application.isEditor) //check if running in editor 
+        {
+            gameView.InstantiatePlayer(gameModel.FirstLocalPlayer);
+            return;
+        }
 
+        //check which mode was selected
         switch (ApplicationController.instance.GetCurrentMode())
         {
             case ApplicationController.ApplicationMode.MENU: //should not get here
                 Debug.Log("Error: Game in menu mode on game screen");
-                ApplicationController.instance.ReturnToMenu();
+                ReturnToMenu();
                 break;
             case ApplicationController.ApplicationMode.ONE_PLAYER:
                 gameView.InstantiatePlayer(gameModel.FirstLocalPlayer);
@@ -54,6 +60,30 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// pauses the game (but not the menus)
+    /// </summary>
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    /// <summary>
+    /// unpauses the game 
+    /// </summary>
+    private void UnpauseGame()
+    {
+        Time.timeScale = 1f;
+    }
+
+    /// <summary>
+    /// Displays the game result to the screen and pauses the game
+    /// </summary>
+    public void GameOver(bool didWin)
+    {
+        gameView.DisplayGameResult(didWin,gameModel.BallsCount);
+        PauseGame();
+    }
 
     /// <summary>
     /// initiate the current level by iterating the level layout 
@@ -62,15 +92,23 @@ public class GameController : MonoBehaviour
     {
         if(gameModel.CurrentLevel >= gameModel.LevelLayouts.Count)
         {
-            Debug.LogError("current level out of bounds");
+            GameOver(true);
             return;
         }
+
+
         LevelLayout currentLayout = gameModel.LevelLayouts[gameModel.CurrentLevel];
         foreach(LevelLayout.ballInLayout ball in currentLayout.ballScriptables)
         {
             BallScriptable ballParam = ball.Ball;
             CreateBall(ball.Position, ballParam.Level, ballParam.SpeedY, ballParam.SpeedX, ballParam.Size, ballParam.GravityScale);
             
+        }
+
+        gameView.RemoveOnstacles();
+        foreach (LevelLayout.ObstacleInLayout obstacle in currentLayout.ObsScriptables )
+        {
+            CreateObstacle(obstacle.Obstacle.Width, obstacle.Obstacle.Height, obstacle.Position);
         }
     }
 
@@ -80,7 +118,20 @@ public class GameController : MonoBehaviour
     public void RemovedBall()
     {
         gameModel.BallsCount++;
+        if (gameView.IsBallHolderEmpty())
+        {
+            gameModel.CurrentLevel++;
+            LoadLevel();
+        }
     }
+
+
+
+    private void CreateObstacle(float width,float height,Vector2 Position)
+    {
+        gameView.CreateObstacle(width, height, Position, gameModel.ObstaclePrefab);
+    }
+    
 
     /// <summary>
     /// Called when a new ball need to be created
@@ -100,5 +151,13 @@ public class GameController : MonoBehaviour
         model.Level = level;
         model.SpeedY = speedY;
         model.GravityScale=gravitScale;
+    }
+
+    /// <summary>
+    /// return to menu scene
+    /// </summary>
+    public void ReturnToMenu()
+    {
+        ApplicationController.instance.ReturnToMenu();
     }
 }

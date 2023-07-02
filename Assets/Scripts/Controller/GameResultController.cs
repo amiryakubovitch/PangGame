@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the result manu at the end of the game
+/// </summary>
 [RequireComponent(typeof(GameResultView))]
 public class GameResultController : MonoBehaviour
 {
@@ -17,25 +20,10 @@ public class GameResultController : MonoBehaviour
     /// show the result menu with relavent win or lose status
     /// </summary>
     /// <param name="isVictory">did the player win or lose</param>
-    public void ShowResult(bool isVictory)
+    /// <param name="score">the score of the player</param> 
+    public void ShowResult(bool isVictory,int score)
     {
-        view.ShowResult(isVictory);
-    }
-
-    /// <summary>
-    /// show the next level menu 
-    /// </summary>
-    public void ShowNextLevel() 
-    { 
-        view.ShowNextLevel();
-    }
-
-    /// <summary>
-    /// Continues to the next level 
-    /// </summary>
-    public void GoToNextLevel()
-    {
-        
+        view.ShowResult(isVictory, score);
     }
 
     /// <summary>
@@ -43,6 +31,6 @@ public class GameResultController : MonoBehaviour
     /// </summary>
     public void ReturnToMenu()
     {
-        //swithc to menu
+        GameController.instance.ReturnToMenu();
     }
 }

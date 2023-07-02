@@ -46,8 +46,8 @@ public class BallController : MonoBehaviour
         }
 
         
-        GameController.instance.RemovedBall();
         Destroy(gameObject);
+        GameController.instance.RemovedBall();
 
     }
 

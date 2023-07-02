@@ -65,7 +65,7 @@ public class ApplicationController : MonoBehaviour
     /// </summary>
     public void ReturnToMenu()
     {
-        currentMode = ApplicationMode.TWO_PLAYERS;
+        currentMode = ApplicationMode.MENU;
         SceneManager.LoadScene("MainMenu");
     }
 

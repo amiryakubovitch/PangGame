@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d62dc30cb24646d4c940eacd8636163c, type: 3}
-  m_Name: Level1
+  m_Name: Level3
   m_EditorClassIdentifier: 
   ballScriptables:
-  - Ball: {fileID: 11400000, guid: 54ec0f20c9c9a844fa2a0a22892d2c2c, type: 2}
+  - Ball: {fileID: 11400000, guid: 44ef58f984f75e24388b0a0ee49f82ca, type: 2}
     Position: {x: 0, y: 2}
+  ObsScriptables:
+  - Obstacle: {fileID: 11400000, guid: 466744dda84fb404e933adcaeeecf4fc, type: 2}
+    Position: {x: 3, y: 0}
+  - Obstacle: {fileID: 11400000, guid: 466744dda84fb404e933adcaeeecf4fc, type: 2}
+    Position: {x: -3, y: 0}

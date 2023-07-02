@@ -13,9 +13,9 @@ public class GameResultView : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI resultTitle;
     [SerializeField]
-    GameObject resultPanel;
+    TextMeshProUGUI scoreText;
     [SerializeField]
-    GameObject nextLevel;
+    GameObject resultPanel;
 
     GameResultController controller;
 
@@ -28,10 +28,10 @@ public class GameResultView : MonoBehaviour
     /// display the game over screen with accurate title
     /// </summary>
     /// <param name="isWinning">did the player win or lose</param>
-    public void ShowResult(bool isWinning)
+    /// <param name="score">the score of the player</param> 
+    public void ShowResult(bool isWinning,int score)
     {
         resultPanel.SetActive(true);
-        nextLevel.SetActive(false);
         if (isWinning)
         {
             resultTitle.text = "Victory";
@@ -40,25 +40,8 @@ public class GameResultView : MonoBehaviour
         {
             resultTitle.text = "You Lost";
         }
-    }
 
-    /// <summary>
-    /// shows the next level menu
-    /// </summary>
-    public void ShowNextLevel() 
-    {
-        nextLevel.SetActive(true);
-        resultPanel.SetActive(false);
-    }
-
-    /// <summary>
-    /// called when user presses next level button 
-    /// </summary>
-    public void OnNextLevel()
-    {
-        resultPanel.SetActive(false);
-        nextLevel.SetActive(false);
-        controller.GoToNextLevel();
+        scoreText.text = "Your score is:" + score;
     }
 
     /// <summary>
@@ -67,7 +50,6 @@ public class GameResultView : MonoBehaviour
     public void OnReturnToMenu()
     {
         resultPanel.SetActive(false);
-        nextLevel.SetActive(false);
         controller.ReturnToMenu();
     }
 }

@@ -80,6 +80,10 @@ public class LocalPlayerController : MonoBehaviour
     public void OnPlayerHealthChange(int health)
     {
         playerView.SetHealthLabel(health);
+        if (health <= 0)
+        {
+            GameController.instance.GameOver(false);
+        }
     }
 
     /// <summary>

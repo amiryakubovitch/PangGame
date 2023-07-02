@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d62dc30cb24646d4c940eacd8636163c, type: 3}
+  m_Name: Level4
+  m_EditorClassIdentifier: 
+  ballScriptables:
+  - Ball: {fileID: 11400000, guid: 44ef58f984f75e24388b0a0ee49f82ca, type: 2}
+    Position: {x: 0, y: 3}
+  - Ball: {fileID: 11400000, guid: a2e42f7ca4e3fa44baebeb020acdf9ae, type: 2}
+    Position: {x: 3, y: 0}
+  - Ball: {fileID: 11400000, guid: a2e42f7ca4e3fa44baebeb020acdf9ae, type: 2}
+    Position: {x: -3, y: 0}
+  ObsScriptables:
+  - Obstacle: {fileID: 11400000, guid: 6b545008a6a0d3d4cbb916452df76fef, type: 2}
+    Position: {x: 0, y: 0}
+  - Obstacle: {fileID: 11400000, guid: 6b545008a6a0d3d4cbb916452df76fef, type: 2}
+    Position: {x: 2, y: -1}
+  - Obstacle: {fileID: 11400000, guid: 6b545008a6a0d3d4cbb916452df76fef, type: 2}
+    Position: {x: -2, y: -1}
+  - Obstacle: {fileID: 11400000, guid: 6b545008a6a0d3d4cbb916452df76fef, type: 2}
+    Position: {x: 5, y: -3}
+  - Obstacle: {fileID: 11400000, guid: 6b545008a6a0d3d4cbb916452df76fef, type: 2}
+    Position: {x: -5, y: -3}
